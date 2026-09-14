@@ -1,0 +1,13 @@
+fastmcp
+mcp
+google-adk
+aiosqlite
+google-generativeai
+python-dotenv
+pydantic
+aiohttp
+google-api-python-client
+google-auth
+google-auth-httplib2
+prometheus-client
+uvicorn[standard]

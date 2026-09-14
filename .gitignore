@@ -1,0 +1,6 @@
+.venv/
+.env
+service_account.json
+*.db
+__pycache__/
+*.json

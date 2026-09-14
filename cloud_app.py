@@ -380,7 +380,13 @@ async def chat(request: Request) -> JSONResponse:
                 agent = Agent(
                     name="cloud_order_drive_agent", model=os.getenv("GEMINI_MODEL", "gemini-3.6-flash"),
                     description="Answers order and Google Drive questions.",
-                    instruction="Use the database and Google Drive tools when appropriate. Ask for an account ID when orders need one. Summarize results clearly.",
+                    instruction=(
+                        "Use only tools returned by the MCP server. For orders, use get_orders and ask for an account ID when it is missing. "
+                        "For Google Drive searches, use list_drive_files. To read a Drive file, use read_drive_file. "
+                        "Never invent or call google_drive_search or google_drive:google_drive_search. "
+                        "If a tool fails, explain the failure clearly and do not claim that files were found. "
+                        "Summarize successful tool results in plain, friendly language."
+                    ),
                     tools=[toolset],
                 )
                 _agent_runner = InMemoryRunner(agent=agent, app_name="cloud_app")

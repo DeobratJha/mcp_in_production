@@ -378,6 +378,7 @@ async def chat(request: Request) -> JSONResponse:
                         url=MCP_SERVER_URL,
                         headers={"x-api-key": MCP_API_KEY} if MCP_API_KEY else {},
                     ),
+                    header_provider=lambda _: {"x-api-key": MCP_API_KEY} if MCP_API_KEY else {},
                 )
                 agent = Agent(
                     name="cloud_order_drive_agent", model=os.getenv("GEMINI_MODEL", "gemini-3.6-flash"),

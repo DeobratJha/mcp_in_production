@@ -49,3 +49,8 @@ uvicorn cloud_app:app --host 0.0.0.0 --port $PORT
 ```
 
 
+## Project Demo
+
+<p align="center">
+  <img src="demo.png" alt="Project Homepage" width="900">
+</p>
